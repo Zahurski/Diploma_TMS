@@ -3,47 +3,71 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float panSpeed = 20f;
-    public float panBorderThickness = 10f;
-    public Vector2 panLimit;
+    [SerializeField] private Camera camera;
+    [SerializeField] private float movementSpeed;
+    
+    private Vector3 _newZoom;
+    private Vector3 _newPosition;
+    private Vector3 _dragStartPosition;
+    private Vector3 _dragCurrentPosition;
 
-    public float scrollSpeed = 20f;
-    public float minY = 20f;
-    public float maxY = 120f;
-
-    void Update()
-
+    private void Start()
     {
-        Vector3 pos = transform.position;
-        
-        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
-        {
-            pos.z += panSpeed * Time.deltaTime;
-        }
-
-        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
-        {
-            pos.z -= panSpeed * Time.deltaTime;
-        }
-
-        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
-        {
-            pos.x += panSpeed * Time.deltaTime;
-        }
-
-        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
-        {
-            pos.x -= panSpeed * Time.deltaTime;
-        }
-
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        pos.y -= scroll * scrollSpeed * 100f * Time.deltaTime;
-
-        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
-        pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
-
-        transform.position = pos;
-
+        _newPosition = transform.position;
     }
+
+    private void Update()
+    {
+        HandleMouseInput();
+        HandleMovementInput();
+    }
+    
+    private void HandleMouseInput()
+    {
+        if (Input.mouseScrollDelta.y >= 0)
+        {
+            camera.orthographicSize -= 1f;
+        }
+        
+        if (Input.mouseScrollDelta.y <= 0)
+        {
+            camera.orthographicSize += 1f;
+        }
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            float entry;
+            
+            if(plane.Raycast(ray, out entry))
+            {
+                _dragStartPosition = ray.GetPoint(entry);
+            }
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            float entry;
+            
+            if(plane.Raycast(ray, out entry))
+            {
+                _dragCurrentPosition = ray.GetPoint(entry);
+
+                _newPosition = transform.position + _dragStartPosition - _dragCurrentPosition;
+            }
+        }
+    }
+    
+    private void HandleMovementInput()
+    {
+        transform.position = Vector3.Lerp(transform.position, _newPosition, movementSpeed * Time.deltaTime);
+    }
+
 }
