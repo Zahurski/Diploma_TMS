@@ -19,8 +19,8 @@ namespace GasStation
         [SerializeField] private TextMeshProUGUI costFueling = null;
         [SerializeField] private TextMeshProUGUI costSpawnDelay = null;
         [SerializeField] private GasStationConfig config;
-        [SerializeField] private Image fuelingProgressBar;
-        [SerializeField] private Image spawnProgressBar;
+        [SerializeField] public Image fuelingProgressBar;
+        [SerializeField] public Image spawnProgressBar;
 
         private UpgradableGasStation _upgradableGasStation;
 
@@ -44,14 +44,6 @@ namespace GasStation
             upgradeCost.text = Math.Round(_upgradableGasStation.CurrentCost, 0).ToString(CultureInfo.InvariantCulture);
             costFueling.text = Math.Round(config.CostFueling, 0).ToString(CultureInfo.InvariantCulture);
             costSpawnDelay.text = Math.Round(config.CostSpawnDelay, 0).ToString(CultureInfo.InvariantCulture);
-            if (config.LevelFueling != 0)
-            {
-                fuelingProgressBar.fillAmount += 1f / (50 - config.LevelFueling);
-            }
-            if (config.LevelFueling != 0)
-            {
-                spawnProgressBar.fillAmount += 1f / (50 - config.LevelSpawnDelay);
-            }
         }
     }
 }

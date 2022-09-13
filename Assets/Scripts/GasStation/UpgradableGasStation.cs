@@ -49,6 +49,10 @@ namespace GasStation
                 config.FuelingTime -= config.DecreaseFueling;
                 GameManager.Instance.Money -= config.CostFueling;
                 config.CostFueling *= 1.8f;
+                if (config.LevelFueling != 0)
+                {
+                    button.fuelingProgressBar.fillAmount += 1f / (50 - config.LevelFueling);
+                }
                 button.RefreshGasStationInfo();
             }
         }
@@ -63,6 +67,10 @@ namespace GasStation
                 config.SpawnDelay -= config.DecreaseSpawnDelay;
                 GameManager.Instance.Money -= config.CostSpawnDelay;
                 config.CostSpawnDelay *= 2f;
+                if (config.LevelSpawnDelay != 0)
+                {
+                    button.spawnProgressBar.fillAmount += 1f / (50 - config.LevelSpawnDelay);
+                }
                 button.RefreshGasStationInfo();
             }
         }
