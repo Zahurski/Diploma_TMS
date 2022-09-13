@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828581b755ff40ef86fee776e72f3f9f, type: 3}
   m_Name: GasStationConfig
   m_EditorClassIdentifier: 
-  startUpgradeCost: 0
-  costMultiplier: 1.7
-  cost: 7.5
+  startUpgradeCost: 5
+  costMultiplier: 0.06
+  cost: 50
+  costFueling: 5
+  costSpawnDelay: 10
   carSpeed: 8
-  spawnDelay: 1
-  fuelingTime: 2
+  spawnDelay: 5
+  fuelingTime: 5
+  level: 1
+  levelFueling: 0
+  levelSpawnDelay: 0

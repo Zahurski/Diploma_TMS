@@ -10,17 +10,18 @@ using UnityEngine;
     {
         private const string CarTag = "Car";
         private const string GasStationTag = "GasStation";
+        
         [SerializeField] private Transform target;
+        [SerializeField] private GasStationConfig config;
+        
         private float _currentSpeed;
-
         private bool _stop;
         private bool _fuel;
 
         private PoolObject _poolObject;
         private FuelingLoading _fuelingLoading;
         private MoneyIncreaseText _moneyIncreaseText;
-        [SerializeField] private GasStationConfig config;
-        
+
         private void Awake()
         {
             _poolObject = GetComponent<PoolObject>();

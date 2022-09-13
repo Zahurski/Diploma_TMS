@@ -47,8 +47,7 @@ public class GasStationSpawn : MonoBehaviour
 
     private IEnumerator SpawnDelay()
     {
-            yield return new WaitForSeconds(config.SpawnDelay);
-            _spawnDelay = true;
-
+        yield return new WaitForSeconds(config.SpawnDelay);
+        _spawnDelay = true;
     }
 }

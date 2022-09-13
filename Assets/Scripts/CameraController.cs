@@ -24,12 +24,13 @@ public class CameraController : MonoBehaviour
     
     private void HandleMouseInput()
     {
-        if (Input.mouseScrollDelta.y >= 0)
+        //TODO: добавить скролы пальцами
+        if (Input.mouseScrollDelta.y >= 0 && camera.orthographicSize >= 5)
         {
             camera.orthographicSize -= 1f;
         }
         
-        if (Input.mouseScrollDelta.y <= 0)
+        if (Input.mouseScrollDelta.y <= 0 && camera.orthographicSize <= 15)
         {
             camera.orthographicSize += 1f;
         }
