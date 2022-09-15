@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Adv;
 using Components;
 using GasStation;
 using GasStation.Config;
@@ -21,9 +22,11 @@ using UnityEngine;
         private PoolObject _poolObject;
         private FuelingLoading _fuelingLoading;
         private MoneyIncreaseText _moneyIncreaseText;
+        private AdvController _adv;
 
         private void Awake()
         {
+            _adv = FindObjectOfType<AdvController>();
             _poolObject = GetComponent<PoolObject>();
             _fuelingLoading = FindObjectOfType<FuelingLoading>();
             _moneyIncreaseText = FindObjectOfType<MoneyIncreaseText>();
@@ -69,7 +72,6 @@ using UnityEngine;
         {
             if (gameObject.transform.position == target.position)
             {
-                //Destroy(gameObject);
                 _fuel = false;
                 _stop = false;
                 _poolObject.ReturnToPool();
@@ -85,6 +87,6 @@ using UnityEngine;
             _moneyIncreaseText.Fuel = true;
             _stop = false;
             //тестовый вариант
-            GameManager.Instance.Money += config.Cost;
+            GameManager.Instance.Money += config.Cost * _adv.AdvMultiplier;
         }
     }

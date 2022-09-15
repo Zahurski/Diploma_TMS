@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Globalization;
+using Adv;
 using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
@@ -12,18 +13,25 @@ namespace GasStation
 {
     public class MoneyIncreaseText : MonoBehaviour
     {
-        private CarMoveble _carMoveble;
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private GasStationConfig config;
         private readonly Vector3 _targetPositionText = new(0, 4, 0);
+        
+        private AdvController _adv;
 
         public bool Fuel { get; set; }
+
+        private void Awake()
+        {
+            _adv = FindObjectOfType<AdvController>();
+        }
+
         private void Update()
         {
             if (Fuel)
             {
                 ShowFuelText();
-                text.text = "+" + ((float) Math.Round(config.Cost, 0)).ToString(CultureInfo.InvariantCulture);
+                text.text = "+" + ((float) Math.Round(config.Cost * _adv.AdvMultiplier, 0)).ToString(CultureInfo.InvariantCulture);
             }
             else
             {
