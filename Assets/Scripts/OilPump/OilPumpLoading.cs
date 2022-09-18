@@ -9,26 +9,24 @@ namespace OilPump
     {
         [SerializeField] private Image loadingImage;
         [SerializeField] OilPumpConfig config;
-        private Canvas _canvas;
+        [SerializeField] private Canvas canvas;
 
         public bool IsActive { get; set; }
 
         private void Awake()
         {
-            _canvas = gameObject.GetComponent<Canvas>();
+            canvas.enabled = true;
             loadingImage.fillAmount = 0;
         }
 
         private void Update()
         {
-            if (!IsActive)
-            {
-                _canvas.enabled = false;
-                loadingImage.fillAmount = 0;
-                return;
-            }
-            _canvas.enabled = true;
             loadingImage.fillAmount += 1f / config.PumpingTime * Time.deltaTime;
+        }
+
+        public void FillAmountZero()
+        {
+            loadingImage.fillAmount = 0;
         }
     }
 }

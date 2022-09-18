@@ -7,14 +7,13 @@ public class FuelingLoading : MonoBehaviour
 {
     [SerializeField] private Image loadingImage;
     [SerializeField] GasStationConfig config;
-    private Canvas _canvas;
+    [SerializeField] private Canvas canvas;
     private bool _deactivateTimer;
 
     public bool IsActive { get; set; }
 
     private void Awake()
     {
-        _canvas = gameObject.GetComponent<Canvas>();
         loadingImage.fillAmount = 0;
     }
 
@@ -22,11 +21,11 @@ public class FuelingLoading : MonoBehaviour
     {
         if (!IsActive)
         {
-            _canvas.enabled = false;
+            canvas.enabled = false;
             loadingImage.fillAmount = 0;
             return;
         }
-        _canvas.enabled = true;
+        canvas.enabled = true;
         loadingImage.fillAmount += 1f / config.FuelingTime * Time.deltaTime;
     }
 }
