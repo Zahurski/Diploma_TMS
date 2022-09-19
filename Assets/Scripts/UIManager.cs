@@ -4,6 +4,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _gameScreen;
     [SerializeField] private GameObject _gasStationUpgradeMenu;
+    [SerializeField] private GameObject _oilPumpUpgradeMenu;
     
     private GameObject _currentScreen;
     
@@ -17,6 +18,13 @@ public class UIManager : MonoBehaviour
         _currentScreen.SetActive(false);
         _gasStationUpgradeMenu.SetActive(true);
         _currentScreen = _gasStationUpgradeMenu;
+    }
+
+    public void ShowOilPumpUpgradeMenu()
+    {
+        _currentScreen.SetActive(false);
+        _oilPumpUpgradeMenu.SetActive(true);
+        _currentScreen = _oilPumpUpgradeMenu;
     }
 
     public void Close()
