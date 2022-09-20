@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c159807646e0484b929ec5cbb90dce6a, type: 3}
   m_Name: OilPumpConfig
   m_EditorClassIdentifier: 
-  startUpgradeCost: 0
-  costMultiplier: 1.7
-  cost: 2
-  pumpingTime: 1
+  startUpgradeCost: 1
+  costMultiplier: 1.5
+  cost: 5
+  costPumping: 5
+  costPumpingDelay: 10
+  pumpingDelay: 5
+  pumpingTime: 2
+  level: 5
+  levelPumping: 0
+  levelPumpingDelay: 0
