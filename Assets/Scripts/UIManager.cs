@@ -7,7 +7,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _oilPumpUpgradeMenu;
     
     private GameObject _currentScreen;
-    
+
+    public GameObject CurrentScreen => _currentScreen;
+    public GameObject GameScreen => _gameScreen;
+
     private void Awake()
     {
         _currentScreen = _gameScreen;

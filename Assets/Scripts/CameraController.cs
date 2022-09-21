@@ -5,11 +5,18 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Camera camera;
     [SerializeField] private float movementSpeed;
+
+    private UIManager _uiManager;
     
     private Vector3 _newZoom;
     private Vector3 _newPosition;
     private Vector3 _dragStartPosition;
     private Vector3 _dragCurrentPosition;
+
+    private void Awake()
+    {
+        _uiManager = FindObjectOfType<UIManager>();
+    }
 
     private void Start()
     {
@@ -18,6 +25,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if(_uiManager.CurrentScreen != _uiManager.GameScreen) return;
         HandleMouseInput();
         HandleMovementInput();
     }

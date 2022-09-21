@@ -41,6 +41,7 @@ using UnityEngine;
             transform.position = Vector3.MoveTowards(transform.position, target.position, _currentSpeed * Time.deltaTime);
         }
 
+
         private void OnTriggerEnter(Collider other)
         {
             if (_fuel) return;

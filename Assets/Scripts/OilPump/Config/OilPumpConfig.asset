@@ -15,10 +15,10 @@ MonoBehaviour:
   startUpgradeCost: 1
   costMultiplier: 1.5
   cost: 5
-  costPumping: 5
+  costPumping: 1
   costPumpingDelay: 10
   pumpingDelay: 5
-  pumpingTime: 2
+  pumpingTime: 1
   level: 5
-  levelPumping: 0
+  levelPumping: 1
   levelPumpingDelay: 0

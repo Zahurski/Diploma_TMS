@@ -29,12 +29,10 @@ namespace OilPump
         {
             while (true)
             {
-                //_oilPumpLoading.IsActive = true;
                 _oilPumpLoading.FillAmountZero();
                 yield return new WaitForSeconds(config.PumpingTime);
                 _oilPumpMoneyIncreaseText.Pump = true;
                 GameManager.Instance.Money += config.Cost * _adv.AdvMultiplier;
-                //_oilPumpLoading.IsActive = false;
             }
         }
     }

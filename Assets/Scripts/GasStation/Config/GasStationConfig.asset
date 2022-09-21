@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startUpgradeCost: 5
   costMultiplier: 0.06
-  cost: 3
+  cost: 5
   costFueling: 5
   costSpawnDelay: 5
   carSpeed: 8
-  spawnDelay: 5
+  spawnDelay: 1
   fuelingTime: 3
   level: 3
   levelFueling: 0

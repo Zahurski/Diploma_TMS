@@ -14,6 +14,7 @@ namespace GasStation
 
         private void OnMouseDown()
         {
+            if(_uiManager.CurrentScreen != _uiManager.GameScreen) return;
             _uiManager.ShowGasStationUpgradeMenu();
         }
     }
