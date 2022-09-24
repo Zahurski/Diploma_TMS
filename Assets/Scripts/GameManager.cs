@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    private UIManager _uiManager;
     
     private float _money = 0;
     private float _diamond = 0;
@@ -16,8 +18,15 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        _uiManager = FindObjectOfType<UIManager>();
     }
-    
+
+    private void Start()
+    {
+        _uiManager.Initialize();
+    }
+
     public float Money
     {
         get => _money;
