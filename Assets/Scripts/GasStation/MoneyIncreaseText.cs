@@ -1,12 +1,8 @@
 using System;
-using System.Collections;
 using System.Globalization;
-using Adv;
-using DG.Tweening;
+using Ads;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using DG.Tweening;
 using GasStation.Config;
 
 namespace GasStation
@@ -17,13 +13,13 @@ namespace GasStation
         [SerializeField] private GasStationConfig config;
         private readonly Vector3 _targetPositionText = new(0, 4, 0);
         
-        private AdvController _adv;
+        private AdsController _ads;
 
         public bool Fuel { get; set; }
 
         private void Awake()
         {
-            _adv = FindObjectOfType<AdvController>();
+            _ads = FindObjectOfType<AdsController>();
         }
 
         private void Update()
@@ -31,7 +27,7 @@ namespace GasStation
             if (Fuel)
             {
                 ShowFuelText();
-                text.text = "+" + ((float) Math.Round(config.Cost * _adv.AdvMultiplier, 0)).ToString(CultureInfo.InvariantCulture);
+                text.text = "+" + ((float) Math.Round(config.Cost * _ads.AdvMultiplier, 0)).ToString(CultureInfo.InvariantCulture);
             }
             else
             {

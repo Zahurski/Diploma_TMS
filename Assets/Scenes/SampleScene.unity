@@ -698,17 +698,25 @@ Transform:
   m_Father: {fileID: 524146993}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1519099762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8254349199386338314, guid: dcc724caece515349baf9cfdeb19da00, type: 3}
-  m_PrefabInstance: {fileID: 8254349200636541816}
+--- !u!1 &1557196060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1206705014, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+  m_PrefabInstance: {fileID: 509653240009184183}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &1557196064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557196060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 187cc5a28af8400faccf8cfbe08b348c, type: 3}
+  m_Script: {fileID: 11500000, guid: e6034470ab487fc4fafc06d9a4a606c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gasStation: {fileID: 11400000, guid: 9d2f267ffaac6dc40964417d99273939, type: 2}
+  oilPump: {fileID: 11400000, guid: ea2866a5d8bee3545a81f76d696675cf, type: 2}
 --- !u!223 &1649318998 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 63563211, guid: 7232723c4b79bef488367ffd8b536406, type: 3}
@@ -748,6 +756,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 31983719, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 31983719, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 31983719, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1557196064}
+    - target: {fileID: 31983719, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 31983719, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Getx2
+      objectReference: {fileID: 0}
+    - target: {fileID: 31983719, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FirstLoad, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 31983719, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 671044857, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -783,7 +819,7 @@ PrefabInstance:
     - target: {fileID: 2011474958, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1519099762}
+      objectReference: {fileID: 0}
     - target: {fileID: 219463862932410066, guid: d2c8dcde231ec804a998b9f9b7742b7f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1155,7 +1191,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8254349199386338313, guid: dcc724caece515349baf9cfdeb19da00, type: 3}
       propertyPath: m_Name
-      value: AdvController
+      value: AdsManager
       objectReference: {fileID: 0}
     - target: {fileID: 8254349199386338314, guid: dcc724caece515349baf9cfdeb19da00, type: 3}
       propertyPath: button

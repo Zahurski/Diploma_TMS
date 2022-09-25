@@ -1,14 +1,9 @@
 using System;
-using System.Collections;
 using System.Globalization;
-using Adv;
+using Ads;
 using Components;
-using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using DG.Tweening;
-using GasStation.Config;
 using OilPump.Config;
 
 namespace OilPump
@@ -19,14 +14,14 @@ namespace OilPump
         [SerializeField] private OilPumpConfig config;
         private Vector3 _targetPositionText;
         private OilPumpComponent _oilPump;
-        private AdvController _adv;
+        private AdsController _ads;
 
         public bool Pump { get; set; }
 
         private void Awake()
         {
             _oilPump = FindObjectOfType<OilPumpComponent>();
-            _adv = FindObjectOfType<AdvController>();
+            _ads = FindObjectOfType<AdsController>();
         }
 
         private void Start()
@@ -39,7 +34,7 @@ namespace OilPump
             if (Pump)
             {
                 ShowFuelText();
-                text.text = "+" + ((float) Math.Round(config.Cost * _adv.AdvMultiplier, 0)).ToString(CultureInfo.InvariantCulture);
+                text.text = "+" + ((float) Math.Round(config.Cost * _ads.AdvMultiplier, 0)).ToString(CultureInfo.InvariantCulture);
             }
             else
             {
