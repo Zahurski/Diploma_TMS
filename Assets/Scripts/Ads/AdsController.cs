@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,20 +9,38 @@ namespace Ads
     {
         [SerializeField] private int adsMultiplier = 1;
         [SerializeField] private Button button;
+        
+        private RewardedAdsButton _ads;
+        private bool _active = false;
 
         public int AdvMultiplier => adsMultiplier;
 
-        //проверка
-        public void AdsOn()
+        private void Awake()
         {
-            StartCoroutine(AdsActiveTime());
+            _ads = FindObjectOfType<RewardedAdsButton>();
         }
 
+        private void Start()
+        {
+            _ads.RewardedAdsShowComplete += StartCoroutineRewarded;
+        }
+
+        public void AdsOn()
+        {
+            _active = true;
+            _ads.ShowAd();
+        }
+
+        private void StartCoroutineRewarded()
+        {
+            if(!_active) return;
+            StartCoroutine(AdsActiveTime());
+        }
         private IEnumerator AdsActiveTime()
         {
             adsMultiplier = 2;
             button.interactable = false;
-            yield return new WaitForSeconds(15);
+            yield return new WaitForSeconds(60);
             adsMultiplier = 1;
             button.interactable = true;
         }
