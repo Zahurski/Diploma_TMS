@@ -34,7 +34,6 @@ namespace GasStation
             RefreshGasStationInfo();
         }
 
-        //TODO: либо добавить строчку про спавн машин, либо заменить машин в минуту
         public void RefreshGasStationInfo()
         {
             levelText.text = "Уровень: " + config.Level;

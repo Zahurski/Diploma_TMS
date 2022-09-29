@@ -87,7 +87,6 @@ using UnityEngine;
             _fuel = true;
             _moneyIncreaseText.Fuel = true;
             _stop = false;
-            //тестовый вариант
             GameManager.Instance.Money += config.Cost * _ads.AdvMultiplier;
         }
     }

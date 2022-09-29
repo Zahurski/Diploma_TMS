@@ -24,6 +24,13 @@ public class UIManager : MonoBehaviour
         ShowFirstEntryMenu();
     }
 
+    public void ShowGameScreen()
+    {
+        _currentScreen.SetActive(false);
+        _gameScreen.SetActive(true);
+        _currentScreen = _gameScreen;
+    }
+    
     public void ShowFirstEntryMenu()
     {
         _currentScreen.SetActive(false);

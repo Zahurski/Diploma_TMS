@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class FirstLoad : MonoBehaviour
 {
-    private const string LAST_PLAYED_TIME = "LastPlayedTime";
+    
     [SerializeField] private TextMeshProUGUI textMoneyOffline;
     [SerializeField] private GasStationConfig gasStation;
     [SerializeField] private OilPumpConfig oilPump;
@@ -76,17 +76,12 @@ public class FirstLoad : MonoBehaviour
         _uiManager.Close();
     }
     
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.SetString(LAST_PLAYED_TIME, DateTime.UtcNow.ToString(CultureInfo.InvariantCulture));
-    }
-    
     private void CalculateOfflineIncome()
     {
-        string lastPlayedTimeString = PlayerPrefs.GetString(LAST_PLAYED_TIME, null);
+        var lastPlayedTimeString = PlayerPrefs.GetString(GameManager.LastPlayedTime, null);
         if(lastPlayedTimeString == null) return;
 
-        var lastPlayedTime = DateTime.Parse(lastPlayedTimeString, CultureInfo.InvariantCulture);
+        var lastPlayedTime = DateTime.Parse(lastPlayedTimeString, CultureInfo.CurrentCulture);
         int timeSpanRestriction = 2 * 60 * 60;
         double secondSpan = (DateTime.UtcNow - lastPlayedTime).TotalSeconds;
 

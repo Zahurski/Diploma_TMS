@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private const string MONEY = "Money";
-    private const string DIAMOND = "Diamond";
+    private const string LAST_PLAYED_TIME = "LastPlayedTimea";
+    private const string MONEY = "Moneya";
+    private const string DIAMOND = "Diamonda";
     public static GameManager Instance;
 
     private UIManager _uiManager;
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     private float _diamond = 0;
     public Action<float> OnMoneyValueChange = null;
     public Action<float> OnDiamondValueChange = null;
+    
+    public static string LastPlayedTime => LAST_PLAYED_TIME;
     
     private void Awake()
     {
@@ -29,8 +32,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _uiManager.Initialize();
-        CheckKeys();
+        
+        Load();
     }
 
     public float Money
@@ -63,29 +66,34 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetFloat(MONEY, _money);
         PlayerPrefs.SetFloat(DIAMOND, _diamond);
-    }
-
-    private void CheckKeys()
-    {
-        if (!PlayerPrefs.HasKey("Money") && !PlayerPrefs.HasKey("Diamond"))
-        {
-            PlayerPrefs.SetFloat("Money", 0);
-            PlayerPrefs.SetFloat("Diamond", 0);
-        }
-        else
-        {
-            Load();
-        }
+        PlayerPrefs.SetString(LAST_PLAYED_TIME, DateTime.UtcNow.ToString(CultureInfo.CurrentCulture));
     }
 
     private void Load()
     {
-        _money = PlayerPrefs.GetFloat(MONEY);
-        _diamond = PlayerPrefs.GetFloat(DIAMOND);
+        if (!PlayerPrefs.HasKey(MONEY))
+        {
+            PlayerPrefs.SetFloat(MONEY, 0);
+            _uiManager.ShowGameScreen();
+        }
+        else
+        {
+            _uiManager.Initialize();
+            _money = PlayerPrefs.GetFloat(MONEY);
+        }
+        
+        if (!PlayerPrefs.HasKey(DIAMOND))
+        {
+            PlayerPrefs.SetFloat(DIAMOND, 0);
+        }
+        else
+        {
+            _diamond = PlayerPrefs.GetFloat(DIAMOND);
+        }
     }
 }

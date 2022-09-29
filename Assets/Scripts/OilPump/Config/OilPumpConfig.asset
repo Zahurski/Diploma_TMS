@@ -18,7 +18,7 @@ MonoBehaviour:
   costPumping: 1
   costPumpingDelay: 10
   pumpingDelay: 5
-  pumpingTime: 1
-  level: 5
-  levelPumping: 1
+  pumpingTime: 5
+  level: 1
+  levelPumping: 0
   levelPumpingDelay: 0
