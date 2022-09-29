@@ -31,6 +31,12 @@ namespace Ads
             _ads.ShowAd();
         }
 
+        public void AdsOnDiamond()
+        {
+            //test
+            GameManager.Instance.Diamond += 10;
+        }
+
         private void StartCoroutineRewarded()
         {
             if(!_active) return;
@@ -43,6 +49,7 @@ namespace Ads
             yield return new WaitForSeconds(60);
             adsMultiplier = 1;
             button.interactable = true;
+            _active = false;
         }
     }
 }
