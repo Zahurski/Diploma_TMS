@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     private Vector3 _newPosition;
     private Vector3 _dragStartPosition;
     private Vector3 _dragCurrentPosition;
+    private bool _moveble;
+    public bool Moveble => _moveble;
 
     private void Awake()
     {
@@ -26,6 +28,8 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         if(_uiManager.CurrentScreen != _uiManager.GameScreen) return;
+        
+        _moveble = transform.position != _newPosition;
         HandleMouseInput();
         HandleMovementInput();
     }

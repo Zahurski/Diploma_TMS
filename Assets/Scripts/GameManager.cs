@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private UIManager _uiManager;
     
     private float _money = 0;
-    private float _diamond = 0;
+    private int _diamond = 0;
     public Action<float> OnMoneyValueChange = null;
     public Action<float> OnDiamondValueChange = null;
     
@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
         Load();
     }
 
@@ -51,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public float Diamond
+    public int Diamond
     {
         get => _diamond;
 
@@ -60,7 +59,7 @@ public class GameManager : MonoBehaviour
             if (value >= 0)
             {
                 _diamond = value;
-                _diamond = (float) Math.Round(_diamond, 0);
+                //_diamond = (float) Math.Round(_diamond, 0);
                 OnDiamondValueChange?.Invoke(_diamond);
                 
             }
@@ -70,7 +69,7 @@ public class GameManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetFloat(MONEY, _money);
-        PlayerPrefs.SetFloat(DIAMOND, _diamond);
+        PlayerPrefs.SetInt(DIAMOND, _diamond);
         PlayerPrefs.SetString(LAST_PLAYED_TIME, DateTime.UtcNow.ToString(CultureInfo.CurrentCulture));
     }
 
@@ -89,11 +88,11 @@ public class GameManager : MonoBehaviour
         
         if (!PlayerPrefs.HasKey(DIAMOND))
         {
-            PlayerPrefs.SetFloat(DIAMOND, 0);
+            PlayerPrefs.SetInt(DIAMOND, 0);
         }
         else
         {
-            _diamond = PlayerPrefs.GetFloat(DIAMOND);
+            _diamond = PlayerPrefs.GetInt(DIAMOND);
         }
     }
 }
