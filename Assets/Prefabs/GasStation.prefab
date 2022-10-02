@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingImage: {fileID: 1548075736}
   config: {fileID: 11400000, guid: 9d2f267ffaac6dc40964417d99273939, type: 2}
-  canvas: {fileID: 0}
+  canvas: {fileID: 63563211}
 --- !u!114 &63563213
 MonoBehaviour:
   m_ObjectHideFlags: 0

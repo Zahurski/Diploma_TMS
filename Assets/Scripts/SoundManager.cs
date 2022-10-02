@@ -7,6 +7,16 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClipClose;
+    [SerializeField] private AudioClip audioClipMoney;
+
+    private UIManager _uiManager;
+
+    private void Awake()
+    {
+        _uiManager = FindObjectOfType<UIManager>();
+    }
 
     private void Start()
     {
@@ -18,6 +28,9 @@ public class SoundManager : MonoBehaviour
         {
             Load();
         }
+
+        _uiManager.CloseMenu += CloseSound;
+        GameManager.Instance.IncreaseMoney += IncreaseMoney;
     }
 
     private void FixedUpdate()
@@ -39,5 +52,15 @@ public class SoundManager : MonoBehaviour
     private void Save()
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+    }
+
+    private void CloseSound()
+    {
+        audioSource.PlayOneShot(audioClipClose);
+    }
+
+    private void IncreaseMoney()
+    {
+        audioSource.PlayOneShot(audioClipMoney);
     }
 }

@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _settings;
     
     private GameObject _currentScreen;
+    
+    public event Action CloseMenu;
 
     public GameObject CurrentScreen => _currentScreen;
     public GameObject GameScreen => _gameScreen;
@@ -61,6 +63,7 @@ public class UIManager : MonoBehaviour
 
     public void Close()
     {
+        CloseMenu?.Invoke();
         _currentScreen.SetActive(false);
         _currentScreen = _gameScreen;
         _currentScreen.SetActive(true);

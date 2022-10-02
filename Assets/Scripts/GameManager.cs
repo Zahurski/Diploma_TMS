@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private int _diamond = 0;
     public Action<float> OnMoneyValueChange = null;
     public Action<float> OnDiamondValueChange = null;
+    public Action IncreaseMoney;
     
     public static string LastPlayedTime => LAST_PLAYED_TIME;
     
@@ -43,6 +44,11 @@ public class GameManager : MonoBehaviour
         {
             if (value >= 0)
             {
+                var currentMoney = value;
+                if (currentMoney - _money >= 0)
+                {
+                    IncreaseMoney?.Invoke();
+                }
                 _money = value;
                 _money = (float) Math.Round(_money, 0);
                 OnMoneyValueChange?.Invoke(_money);
