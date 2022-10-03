@@ -42,10 +42,10 @@ namespace OilPump
             levelText.text = "Уровень: " + config.Level;
             pumpingTimeText.text = "Время добычи: " + Math.Round(config.PumpingTime, 2).ToString(CultureInfo.InvariantCulture) + "c";
             pumpingDelay.text = "добыча в минуту: " + Math.Round(60f / config.PumpingTime , 1).ToString(CultureInfo.InvariantCulture);
-            profitText.text = config.Cost.ToString(CultureInfo.InvariantCulture);
-            upgradeCost.text = Math.Round(_upgradableOilPump.CurrentCost, 0).ToString(CultureInfo.InvariantCulture);
-            costFueling.text = Math.Round(config.CostPumping, 0).ToString(CultureInfo.InvariantCulture);
-            costSpawnDelay.text = Math.Round(config.CostPumpingDelay, 0).ToString(CultureInfo.InvariantCulture);
+            profitText.text = FormatNums.FormatNum(config.Cost);
+            upgradeCost.text = FormatNums.FormatNum(_upgradableOilPump.CurrentCost);
+            costFueling.text = FormatNums.FormatNum(config.CostPumping);
+            costSpawnDelay.text = FormatNums.FormatNum(config.CostPumpingDelay);
         }
     }
 }

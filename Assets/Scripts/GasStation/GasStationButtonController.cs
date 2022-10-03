@@ -9,7 +9,6 @@ namespace GasStation
 {
     public class GasStationButtonController : MonoBehaviour
     {
-        //TODO нужно всю инфу перевести в минуты
         //TODO все переменные через сохранения а не через конфиги, в конфигах только начальные значения.
         [SerializeField] private TextMeshProUGUI levelText= null;
         [SerializeField] private TextMeshProUGUI fuelingTimeText = null;
@@ -39,10 +38,10 @@ namespace GasStation
             levelText.text = "Уровень: " + config.Level;
             fuelingTimeText.text = "Время заправки: " + Math.Round(config.FuelingTime, 2).ToString(CultureInfo.InvariantCulture) + "c";
             carsSpawnDelay.text = "Машин в минуту: " + Math.Round(60f / config.SpawnDelay , 1).ToString(CultureInfo.InvariantCulture);
-            profitText.text = config.Cost.ToString(CultureInfo.InvariantCulture);
-            upgradeCost.text = Math.Round(_upgradableGasStation.CurrentCost, 0).ToString(CultureInfo.InvariantCulture);
-            costFueling.text = Math.Round(config.CostFueling, 0).ToString(CultureInfo.InvariantCulture);
-            costSpawnDelay.text = Math.Round(config.CostSpawnDelay, 0).ToString(CultureInfo.InvariantCulture);
+            profitText.text = FormatNums.FormatNum(config.Cost);
+            upgradeCost.text = FormatNums.FormatNum(_upgradableGasStation.CurrentCost);
+            costFueling.text = FormatNums.FormatNum(config.CostFueling);
+            costSpawnDelay.text = FormatNums.FormatNum(config.CostSpawnDelay);
         }
     }
 }
