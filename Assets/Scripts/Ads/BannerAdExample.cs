@@ -5,18 +5,18 @@ namespace Ads
 {
     public class BannerAdExample : MonoBehaviour
     {
-        [SerializeField] BannerPosition _bannerPosition = BannerPosition.BOTTOM_CENTER;
+        [SerializeField] private BannerPosition _bannerPosition = BannerPosition.BOTTOM_CENTER;
 
-        [SerializeField] string _androidAdUnitId = "Banner_Android";
-        [SerializeField] string _iOsAdUnitId = "Banner_iOS";
-        string _adUnitId = null; // This will remain null for unsupported platforms.
+        private static string ANDROID_AD_UNIT_ID = "Banner_Android";
+        private static string IOS_AD_UNIT_ID = "Banner_iOS";
+        private string _adUnitId = null; // This will remain null for unsupported platforms.
 
-        void Awake()
+        private void Awake()
         {
             // Get the Ad Unit ID for the current platform:
             _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
-                ? _iOsAdUnitId
-                : _androidAdUnitId;
+                ? IOS_AD_UNIT_ID
+                : ANDROID_AD_UNIT_ID;
 
             // Set the banner position:
             Advertisement.Banner.SetPosition(_bannerPosition);

@@ -5,16 +5,16 @@ namespace Ads
 {
     public class InterstitialAdExample : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
     {
-        [SerializeField] string _androidAdUnitId = "Interstitial_Android";
-        [SerializeField] string _iOsAdUnitId = "Interstitial_iOS";
-        string _adUnitId;
+        private static string ANDROID_AD_UNIT_ID = "Interstitial_Android";
+        private static string IOS_AD_UNIT_ID = "Interstitial_iOS";
+        private string _adUnitId;
  
-        void Awake()
+        private void Awake()
         {
             // Get the Ad Unit ID for the current platform:
             _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
-                ? _iOsAdUnitId
-                : _androidAdUnitId;
+                ? IOS_AD_UNIT_ID
+                : ANDROID_AD_UNIT_ID;
         }
  
         // Load content to the Ad Unit:

@@ -27,7 +27,7 @@ namespace GasStation
             if (Fuel)
             {
                 ShowFuelText();
-                text.text = "+" + ((float) Math.Round(config.Cost * _ads.AdvMultiplier, 0)).ToString(CultureInfo.InvariantCulture);
+                text.text = "+" + FormatNums.FormatNum(config.Cost * _ads.AdvMultiplier);
             }
             else
             {

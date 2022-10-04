@@ -8,27 +8,27 @@ namespace Ads
  
     public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     {
-        [SerializeField] string _androidGameId;
-        [SerializeField] string _iOSGameId;
-        [SerializeField] bool _testMode = true;
+        [SerializeField] private bool _testMode = true;
+        private static string ANDROID_GAME_ID = "4944531";
+        private static string IOS_GAME_ID = "4944530";
         private InterstitialAdExample _interstitial;
         private RewardedAdsButton _rewarded;
         private BannerAdExample _banner;
         private string _gameId;
  
-        void Awake()
+        private void Awake()
         {
             InitializeAds();
             _interstitial = FindObjectOfType<InterstitialAdExample>();
             _rewarded = FindObjectOfType<RewardedAdsButton>();
             _banner = FindObjectOfType<BannerAdExample>();
         }
- 
-        public void InitializeAds()
+
+        private void InitializeAds()
         {
             _gameId = (Application.platform == RuntimePlatform.IPhonePlayer)
-                ? _iOSGameId
-                : _androidGameId;
+                ? IOS_GAME_ID
+                : ANDROID_GAME_ID;
             Advertisement.Initialize(_gameId, _testMode, this);
         }
  

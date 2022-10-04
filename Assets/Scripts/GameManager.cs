@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private const string LAST_PLAYED_TIME = "LastPlayedTimea";
-    private const string MONEY = "Moneya";
-    private const string DIAMOND = "Diamonda";
+    private const string LAST_PLAYED_TIME = "LastPlayedTime";
+    private const string MONEY = "Money";
+    private const string DIAMOND = "Diamond";
     public static GameManager Instance;
 
     private UIManager _uiManager;
@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
             if (value >= 0)
             {
                 _diamond = value;
-                //_diamond = (float) Math.Round(_diamond, 0);
                 OnDiamondValueChange?.Invoke(_diamond);
                 
             }

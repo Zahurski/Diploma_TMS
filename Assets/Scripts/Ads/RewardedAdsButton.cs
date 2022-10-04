@@ -6,17 +6,17 @@ namespace Ads
 {
     public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
     {
-        [SerializeField] string _androidAdUnitId = "Rewarded_Android";
-        [SerializeField] string _iOsAdUnitId = "Rewarded_iOS";
-        string _adUnitId = null; // This will remain null for unsupported platforms
+        private static string ANDROID_AD_UNIT_ID = "Rewarded_Android";
+        private static string IOS_AD_UNIT_ID = "Rewarded_iOS";
+        private string _adUnitId = null; // This will remain null for unsupported platforms
 
         public event Action RewardedAdsShowComplete;
-        void Awake()
+        private void Awake()
         {
             // Get the Ad Unit ID for the current platform:
             _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
-                ? _iOsAdUnitId
-                : _androidAdUnitId;
+                ? IOS_AD_UNIT_ID
+                : ANDROID_AD_UNIT_ID;
         }
 
         // Load content to the Ad Unit:

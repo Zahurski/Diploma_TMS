@@ -909,6 +909,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8150028430083121400}
     m_Modifications:
+    - target: {fileID: -3334689287034771573, guid: eb71519cc5d6a4c47a9d1a1a4598f0ba, type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3334689287034771573, guid: eb71519cc5d6a4c47a9d1a1a4598f0ba, type: 3}
+      propertyPath: m_Size.y
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: -3334689287034771573, guid: eb71519cc5d6a4c47a9d1a1a4598f0ba, type: 3}
+      propertyPath: m_Size.z
+      value: 5.98
+      objectReference: {fileID: 0}
     - target: {fileID: 5247915508140965216, guid: eb71519cc5d6a4c47a9d1a1a4598f0ba, type: 3}
       propertyPath: m_Name
       value: Station
@@ -927,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211183992456312092, guid: eb71519cc5d6a4c47a9d1a1a4598f0ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 9211183992456312092, guid: eb71519cc5d6a4c47a9d1a1a4598f0ba, type: 3}
       propertyPath: m_LocalRotation.w

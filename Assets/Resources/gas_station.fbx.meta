@@ -1,9 +1,64 @@
 fileFormatVersion: 2
-guid: 9943c0fbf6ed4bc4c83ab3206777f41d
+guid: 2fe0ff00762e7dd4098bf95160e0244a
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gaz station 1
+    second: {fileID: 2100000, guid: 411d327fc7e40ee43a8344202ca0ade1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gaz station 2
+    second: {fileID: 2100000, guid: 9a5210c8444cfb64daaa9f48d18d517f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gaz station 3
+    second: {fileID: 2100000, guid: 5594eaf3a304829478e1aa796f94b08f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white
+    second: {fileID: 2100000, guid: 77ad6249b7f00a841a4511bf4bfbf28e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0430\u0441\u0444\u0430\u043B\u044C\u0442"
+    second: {fileID: 2100000, guid: 486916574c28072488b48a5005ce577c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043E\u0440\u0430\u043D\u0436\u0435\u0432\u044B\u0439"
+    second: {fileID: 2100000, guid: b1d4d341889bca844a7b3fdc4f5baf2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0440\u0430\u043C\u044B \u043E\u043A\u043E\u043D"
+    second: {fileID: 2100000, guid: 4ac59c2f7b243224cad03d31b8115b86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0441\u0442\u0451\u043A\u043B\u0430"
+    second: {fileID: 2100000, guid: b7cac43afe55a9b49aa8485a705020c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0444\u043E\u043D\u0430\u0440\u044C \u043D\u0435 \u043E\u0441\u043D\u043E\u0432\u0430\u043D\u0438\u0435"
+    second: {fileID: 2100000, guid: 77a4ad302af38d54598492fd601a69fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0444\u043E\u043D\u0430\u0440\u044C \u043E\u0441\u043D\u043E\u0432\u0430\u043D\u0438\u0435"
+    second: {fileID: 2100000, guid: 3c10b894bff536340902c9cfd8617704, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u044D\u043A\u0440\u0430\u043D\u044B"
+    second: {fileID: 2100000, guid: 93f32b2755b961a42bb099f8c0738689, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,7 +90,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 700
+    globalScale: 0.125
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +143,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 7
+    globalScale: 0.00125
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
