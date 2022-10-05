@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Action<float> OnMoneyValueChange = null;
     public Action<float> OnDiamondValueChange = null;
     public Action IncreaseMoney;
+    public Action LoadData;
     
     public static string LastPlayedTime => LAST_PLAYED_TIME;
     
@@ -99,5 +100,7 @@ public class GameManager : MonoBehaviour
         {
             _diamond = PlayerPrefs.GetInt(DIAMOND);
         }
+        
+        LoadData?.Invoke();
     }
 }

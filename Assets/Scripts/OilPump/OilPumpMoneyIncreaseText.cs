@@ -26,7 +26,7 @@ namespace OilPump
 
         private void Start()
         {
-            _targetPositionText = new Vector3(0, 4, _oilPump.transform.position.z);
+            _targetPositionText = new Vector3(_oilPump.transform.position.x, 4, _oilPump.transform.position.z);
         }
 
         private void Update()
@@ -39,7 +39,7 @@ namespace OilPump
             else
             {
                 text.text = " ";
-                text.transform.position = new Vector3(0, 3, _oilPump.transform.position.z);
+                text.transform.position = new Vector3(_oilPump.transform.position.x, 3, _oilPump.transform.position.z);
             }
         }
 

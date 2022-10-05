@@ -19,6 +19,7 @@ namespace OilPump
             }
             
             button.RefreshOilPumpInfo();
+            RefreshPumpBar();
         }
         
         public void UpgradeCost()
@@ -69,6 +70,19 @@ namespace OilPump
                     button.spawnProgressBar.fillAmount += 1f / (50 - config.LevelPumpingDelay);
                 }
                 button.RefreshOilPumpInfo();
+            }
+        }
+
+        private void RefreshPumpBar()
+        {
+            if (config.LevelPumping != 0)
+            {
+                button.fuelingProgressBar.fillAmount = 1f / (50f / config.LevelPumping);
+            }
+            
+            if (config.LevelPumpingDelay != 0)
+            {
+                button.spawnProgressBar.fillAmount = 1f / (50f / config.LevelPumpingDelay);
             }
         }
     }

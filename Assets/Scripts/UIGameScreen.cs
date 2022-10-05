@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using UnityEngine;
 using TMPro;
@@ -9,6 +10,7 @@ public class UIGameScreen : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.LoadData += RefreshMoney;
         OnMoneyValueChanged(GameManager.Instance.Money);
         OnDiamondValueChanged(GameManager.Instance.Diamond);
         GameManager.Instance.OnMoneyValueChange += OnMoneyValueChanged;
@@ -23,5 +25,11 @@ public class UIGameScreen : MonoBehaviour
     private void OnDiamondValueChanged(float value)
     {
         diamondText.text = FormatNums.FormatNum(value);
+    }
+
+    private void RefreshMoney()
+    {
+        moneyText.text = GameManager.Instance.Money.ToString(CultureInfo.InvariantCulture);
+        GameManager.Instance.LoadData -= RefreshMoney;
     }
 }

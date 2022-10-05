@@ -22,6 +22,7 @@ namespace GasStation
             }
             
             button.RefreshGasStationInfo();
+            RefreshFuelingBar();
         }
 
         public void UpgradeCost()
@@ -72,6 +73,19 @@ namespace GasStation
                     button.spawnProgressBar.fillAmount += 1f / (50 - config.LevelSpawnDelay);
                 }
                 button.RefreshGasStationInfo();
+            }
+        }
+
+        private void RefreshFuelingBar()
+        {
+            if (config.LevelFueling != 0)
+            {
+                button.fuelingProgressBar.fillAmount = 1f / (50f / config.LevelFueling);
+            }
+            
+            if (config.LevelSpawnDelay != 0)
+            {
+                button.spawnProgressBar.fillAmount = 1f / (50f / config.LevelSpawnDelay);
             }
         }
     }

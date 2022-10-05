@@ -15,11 +15,11 @@ MonoBehaviour:
   startUpgradeCost: 5
   costMultiplier: 0.06
   cost: 5
-  costFueling: 5
-  costSpawnDelay: 5
+  costFueling: 3213.42
+  costSpawnDelay: 640
   carSpeed: 8
-  spawnDelay: 1
-  fuelingTime: 3
+  spawnDelay: 0.6499999
+  fuelingTime: 2.4500005
   level: 3
-  levelFueling: 0
-  levelSpawnDelay: 0
+  levelFueling: 20
+  levelSpawnDelay: 45
